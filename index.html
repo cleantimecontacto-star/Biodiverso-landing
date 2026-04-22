@@ -319,7 +319,6 @@
     footer a { color: var(--verde-claro); text-decoration: none; }
     footer strong { color: var(--verde-claro); }
 
-    /* ── SMOOTH SCROLL ── */
     html { scroll-behavior: smooth; }
 
     @media (max-width: 600px) {
@@ -331,22 +330,17 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav>
     <a href="#" class="nav-logo">
       <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="20" fill="#1b4332"/>
-        <!-- Tree 1 (center) -->
         <polygon points="20,6 26,20 14,20" fill="#52b788"/>
         <polygon points="20,13 27.5,25 12.5,25" fill="#40916c"/>
         <rect x="18.5" y="25" width="3" height="5" rx="1" fill="#2d6a4f"/>
-        <!-- Tree 2 (left) -->
         <polygon points="10,13 15,23 5,23" fill="#52b788" opacity="0.75"/>
         <rect x="9" y="23" width="2" height="3.5" rx="0.8" fill="#2d6a4f"/>
-        <!-- Tree 3 (right) -->
         <polygon points="30,13 35,23 25,23" fill="#52b788" opacity="0.75"/>
         <rect x="29" y="23" width="2" height="3.5" rx="0.8" fill="#2d6a4f"/>
-        <!-- Ground -->
         <rect x="4" y="29" width="32" height="3" rx="1.5" fill="#2d6a4f"/>
       </svg>
       <div>
@@ -359,7 +353,6 @@
     </a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero" id="inicio">
     <svg class="hero-trees" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <g fill="#d8f3dc">
@@ -385,99 +378,43 @@
     </div>
   </section>
 
-  <!-- STATS -->
   <div class="stats">
-    <div class="stat-item">
-      <span class="stat-num">🌲</span>
-      <div class="stat-label">Plantaciones & Reforestación</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">💧</span>
-      <div class="stat-label">Sistemas de Riego</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">🔬</span>
-      <div class="stat-label">Consultoría Técnica</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">🌿</span>
-      <div class="stat-label">Biodiversidad Nativa</div>
-    </div>
+    <div class="stat-item"><span class="stat-num">🌲</span><div class="stat-label">Plantaciones & Reforestación</div></div>
+    <div class="stat-item"><span class="stat-num">💧</span><div class="stat-label">Sistemas de Riego</div></div>
+    <div class="stat-item"><span class="stat-num">🔬</span><div class="stat-label">Consultoría Técnica</div></div>
+    <div class="stat-item"><span class="stat-num">🌿</span><div class="stat-label">Biodiversidad Nativa</div></div>
   </div>
 
-  <!-- SERVICIOS -->
   <section class="servicios" id="servicios">
     <div class="container">
       <div class="section-tag">Nuestros servicios</div>
       <h2 class="section-title">Soluciones forestales a medida</h2>
       <p class="section-desc">Desde la planificación hasta la ejecución, acompañamos cada etapa de tu proyecto con experiencia técnica y compromiso ambiental.</p>
       <div class="servicios-grid">
-        <div class="servicio-card">
-          <div class="servicio-icon">🌳</div>
-          <h3>Plantación Forestal</h3>
-          <p>Diseño e implementación de proyectos de plantación por especie, adaptados a las condiciones del suelo y clima de tu predio.</p>
-        </div>
-        <div class="servicio-card">
-          <div class="servicio-icon">🏔️</div>
-          <h3>Reforestación</h3>
-          <p>Recuperación de suelos degradados mediante reforestación por hectáreas con especies nativas y exóticas de alto rendimiento.</p>
-        </div>
-        <div class="servicio-card">
-          <div class="servicio-icon">🌿</div>
-          <h3>Cerramiento Forestal</h3>
-          <p>Instalación de cerramientos lineales con especies arbustivas y arbóreas para delimitación y protección de predios.</p>
-        </div>
-        <div class="servicio-card">
-          <div class="servicio-icon">💧</div>
-          <h3>Sistemas de Riego</h3>
-          <p>Diseño e instalación de sistemas de riego tecnificado: goteo, aspersión y sistemas automatizados para áreas forestales.</p>
-        </div>
-        <div class="servicio-card">
-          <div class="servicio-icon">🔬</div>
-          <h3>Consultoría Técnica</h3>
-          <p>Asesoría profesional en gestión forestal, selección de especies, planificación predial y estudios de biodiversidad.</p>
-        </div>
-        <div class="servicio-card">
-          <div class="servicio-icon">🌱</div>
-          <h3>Proyectos Mixtos</h3>
-          <p>Soluciones integradas que combinan plantaciones, servicios de mantención y sistemas de riego para proyectos complejos.</p>
-        </div>
+        <div class="servicio-card"><div class="servicio-icon">🌳</div><h3>Plantación Forestal</h3><p>Diseño e implementación de proyectos de plantación por especie, adaptados a las condiciones del suelo y clima de tu predio.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">🏔️</div><h3>Reforestación</h3><p>Recuperación de suelos degradados mediante reforestación por hectáreas con especies nativas y exóticas de alto rendimiento.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">🌿</div><h3>Cerramiento Forestal</h3><p>Instalación de cerramientos lineales con especies arbustivas y arbóreas para delimitación y protección de predios.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">💧</div><h3>Sistemas de Riego</h3><p>Diseño e instalación de sistemas de riego tecnificado: goteo, aspersión y sistemas automatizados para áreas forestales.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">🔬</div><h3>Consultoría Técnica</h3><p>Asesoría profesional en gestión forestal, selección de especies, planificación predial y estudios de biodiversidad.</p></div>
+        <div class="servicio-card"><div class="servicio-icon">🌱</div><h3>Proyectos Mixtos</h3><p>Soluciones integradas que combinan plantaciones, servicios de mantención y sistemas de riego para proyectos complejos.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- NOSOTROS -->
   <section class="nosotros" id="nosotros">
     <div class="container">
       <div class="section-tag">¿Quiénes somos?</div>
       <h2 class="section-title">Biodiverso nace del amor<br>por la tierra</h2>
       <p class="section-desc">Somos un equipo de profesionales forestales radicados en Santiago de Chile, comprometidos con la restauración ecológica y el desarrollo sostenible del territorio.</p>
       <div class="valores-grid">
-        <div class="valor-item">
-          <span class="valor-emoji">🌍</span>
-          <h4>Compromiso ambiental</h4>
-          <p>Cada proyecto prioriza el cuidado del ecosistema y la recuperación de especies nativas.</p>
-        </div>
-        <div class="valor-item">
-          <span class="valor-emoji">🤝</span>
-          <h4>Cercanía con el cliente</h4>
-          <p>Trabajamos de la mano contigo desde la primera visita hasta la entrega final.</p>
-        </div>
-        <div class="valor-item">
-          <span class="valor-emoji">⚙️</span>
-          <h4>Gestión profesional</h4>
-          <p>Usamos herramientas digitales propias para cotizar, gestionar y hacer seguimiento de cada proyecto.</p>
-        </div>
-        <div class="valor-item">
-          <span class="valor-emoji">📍</span>
-          <h4>Cobertura nacional</h4>
-          <p>Basados en Santiago, trabajamos en todo Chile desde la región de Valparaíso hasta Los Lagos.</p>
-        </div>
+        <div class="valor-item"><span class="valor-emoji">🌍</span><h4>Compromiso ambiental</h4><p>Cada proyecto prioriza el cuidado del ecosistema y la recuperación de especies nativas.</p></div>
+        <div class="valor-item"><span class="valor-emoji">🤝</span><h4>Cercanía con el cliente</h4><p>Trabajamos de la mano contigo desde la primera visita hasta la entrega final.</p></div>
+        <div class="valor-item"><span class="valor-emoji">⚙️</span><h4>Gestión profesional</h4><p>Usamos herramientas digitales propias para cotizar, gestionar y hacer seguimiento de cada proyecto.</p></div>
+        <div class="valor-item"><span class="valor-emoji">📍</span><h4>Cobertura nacional</h4><p>Basados en Santiago, trabajamos en todo Chile desde la región de Valparaíso hasta Los Lagos.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- APP CTA -->
   <section class="app-cta" id="app">
     <div class="container">
       <div class="cta-card">
@@ -491,7 +428,6 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
   <section class="contacto" id="contacto">
     <div class="container">
       <div class="contacto-flex">
@@ -502,24 +438,15 @@
           <div class="contacto-items">
             <a href="tel:+56952396823" class="contacto-item">
               <div class="contacto-item-icon">📞</div>
-              <div class="contacto-item-text">
-                <strong>Teléfono / WhatsApp</strong>
-                <span>+56 9 5239 6823</span>
-              </div>
+              <div class="contacto-item-text"><strong>Teléfono / WhatsApp</strong><span>+56 9 5239 6823</span></div>
             </a>
             <a href="mailto:biodiverso.contacto@gmail.com" class="contacto-item">
               <div class="contacto-item-icon">✉️</div>
-              <div class="contacto-item-text">
-                <strong>Correo electrónico</strong>
-                <span>biodiverso.contacto@gmail.com</span>
-              </div>
+              <div class="contacto-item-text"><strong>Correo electrónico</strong><span>biodiverso.contacto@gmail.com</span></div>
             </a>
             <div class="contacto-item" style="cursor:default;">
               <div class="contacto-item-icon">📍</div>
-              <div class="contacto-item-text">
-                <strong>Ubicación</strong>
-                <span>Santiago de Chile</span>
-              </div>
+              <div class="contacto-item-text"><strong>Ubicación</strong><span>Santiago de Chile</span></div>
             </div>
           </div>
         </div>
@@ -527,7 +454,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 <strong>Biodiverso</strong> – Servicios y Consultoría Forestal · Santiago de Chile</p>
     <p style="margin-top:0.4rem;">
