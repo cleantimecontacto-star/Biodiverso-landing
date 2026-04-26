@@ -3,465 +3,972 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Biodiverso – Servicios y Consultoría Forestal</title>
+  <title>Biodiverso – Mini Bosques & Servicios Forestales · Chile</title>
+  <meta name="description" content="Creamos mini bosques circulares con especies nativas de la zona central chilena. Reforestación, consultoría y gestión forestal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --verde: #2d6a4f;
-      --verde-oscuro: #1b4332;
-      --verde-claro: #52b788;
-      --verde-muy-claro: #d8f3dc;
-      --crema: #f8f5f0;
-      --texto: #1c2b1e;
-      --texto-suave: #4a6350;
-      --blanco: #ffffff;
-      --sombra: 0 4px 24px rgba(27,67,50,0.12);
+      --bosque:    #1a3a2a;
+      --verde:     #2d5a3d;
+      --musgo:     #3d7a52;
+      --salvia:    #5c9470;
+      --menta:     #8fbc8f;
+      --niebla:    #c8e6c9;
+      --crema:     #f5f0e8;
+      --mantequilla:#faf7f2;
+      --tierra:    #6b4226;
+      --corteza:   #8b5e3c;
+      --piedra:    #9e9e8a;
+      --carbon:    #1c2b1e;
+      --texto:     #2c3a2e;
+      --suave:     #5a6e5c;
+      --blanco:    #ffffff;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       color: var(--texto);
-      background: var(--crema);
+      background: var(--mantequilla);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    h1, h2, h3, .serif { font-family: 'Fraunces', Georgia, serif; }
+
+    /* ─── NAV ─────────────────────────────────── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2.5rem;
-      background: rgba(27,67,50,0.96);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      padding: 0.9rem 2.5rem;
+      background: rgba(26, 58, 42, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
+    .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo svg { width: 40px; height: 40px; }
+    .nav-brand { line-height: 1.1; }
+    .nav-nombre { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 700; color: var(--niebla); letter-spacing: -0.01em; }
+    .nav-sub { font-size: 0.65rem; color: var(--menta); letter-spacing: 0.1em; text-transform: uppercase; }
 
-    .nav-logo {
-      display: flex; align-items: center; gap: 0.65rem;
-      text-decoration: none;
-    }
-    .nav-logo-icon {
-      width: 38px; height: 38px;
-    }
-    .nav-logo-text {
-      font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em;
-      color: var(--verde-muy-claro);
-    }
-    .nav-logo-sub {
-      font-size: 0.7rem; color: var(--verde-claro); letter-spacing: 0.08em;
-      text-transform: uppercase; margin-top: -2px;
-    }
-
-    .btn-nav {
+    .btn-ingresar {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--verde-claro); color: var(--verde-oscuro);
-      padding: 0.55rem 1.3rem; border-radius: 9999px;
-      font-weight: 700; font-size: 0.9rem; text-decoration: none;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      box-shadow: 0 2px 8px rgba(82,183,136,0.3);
+      background: var(--musgo); color: var(--blanco);
+      padding: 0.55rem 1.25rem; border-radius: 9999px;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: background 0.2s, transform 0.15s;
     }
-    .btn-nav:hover {
-      background: var(--verde-muy-claro); transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(82,183,136,0.45);
-    }
+    .btn-ingresar:hover { background: var(--salvia); transform: translateY(-1px); }
+    .btn-ingresar svg { width: 15px; height: 15px; }
 
-    /* ── HERO ── */
+    /* ─── HERO ─────────────────────────────────── */
     .hero {
-      min-height: 100vh;
-      background: linear-gradient(160deg, var(--verde-oscuro) 0%, var(--verde) 60%, #40916c 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      position: relative; overflow: hidden;
+      min-height: 100dvh;
+      background: var(--bosque);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 7rem 5vw 4rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(61,122,82,0.2) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero-trees {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      pointer-events: none; opacity: 0.18;
+    .hero-texto { position: relative; z-index: 2; }
+    .hero-etiqueta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(143,188,143,0.15); border: 1px solid rgba(143,188,143,0.35);
+      color: var(--menta); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 9999px; margin-bottom: 1.5rem;
     }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(82,183,136,0.25); border: 1px solid rgba(82,183,136,0.5);
-      color: var(--verde-claro); font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.35rem 1rem; border-radius: 9999px;
-      margin-bottom: 1.5rem;
-    }
-
+    .hero-etiqueta::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--menta); }
     .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      font-weight: 800; line-height: 1.1;
-      color: var(--blanco); margin-bottom: 1.2rem;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.25);
+      font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+      font-weight: 900; line-height: 1.05;
+      color: var(--blanco); margin-bottom: 1.3rem;
+      letter-spacing: -0.02em;
     }
-    .hero h1 span { color: var(--verde-claro); }
-
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(216,243,220,0.85);
-      max-width: 580px; margin: 0 auto 2.5rem;
+    .hero h1 em { font-style: italic; color: var(--menta); }
+    .hero-desc {
+      font-size: 1.1rem; color: rgba(200,230,201,0.75);
+      max-width: 500px; margin-bottom: 2.5rem; line-height: 1.65;
     }
-
-    .hero-ctas {
-      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
-    }
-
-    .btn-hero-primary {
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+    .btn-primary {
       display: inline-flex; align-items: center; gap: 0.6rem;
-      background: var(--verde-claro); color: var(--verde-oscuro);
-      padding: 0.9rem 2rem; border-radius: 9999px;
-      font-weight: 800; font-size: 1.05rem; text-decoration: none;
-      box-shadow: 0 4px 20px rgba(82,183,136,0.4);
+      background: var(--menta); color: var(--bosque);
+      padding: 0.85rem 1.8rem; border-radius: 9999px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(143,188,143,0.35);
       transition: all 0.2s;
     }
-    .btn-hero-primary:hover {
-      background: var(--verde-muy-claro); transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(82,183,136,0.5);
-    }
-
-    .btn-hero-secondary {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      background: transparent; color: var(--verde-muy-claro);
-      padding: 0.9rem 2rem; border-radius: 9999px;
-      border: 2px solid rgba(216,243,220,0.45);
-      font-weight: 700; font-size: 1.05rem; text-decoration: none;
+    .btn-primary:hover { background: var(--niebla); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(143,188,143,0.45); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: rgba(200,230,201,0.85);
+      padding: 0.85rem 1.8rem; border-radius: 9999px;
+      border: 1.5px solid rgba(200,230,201,0.3);
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
       transition: all 0.2s;
     }
-    .btn-hero-secondary:hover {
-      background: rgba(216,243,220,0.1); transform: translateY(-2px);
-      border-color: rgba(216,243,220,0.7);
-    }
+    .btn-outline:hover { border-color: rgba(200,230,201,0.6); background: rgba(200,230,201,0.08); transform: translateY(-2px); }
 
-    /* ── STATS ── */
-    .stats {
-      background: var(--blanco);
+    /* Hero illustration */
+    .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; }
+    .bosque-circle-hero {
+      width: min(420px, 90vw); height: min(420px, 90vw);
+      position: relative;
+    }
+    .bosque-circle-hero svg { width: 100%; height: 100%; }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      color: rgba(200,230,201,0.4); font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; z-index: 2;
+    }
+    .scroll-arrow {
+      width: 28px; height: 28px; border: 1.5px solid rgba(200,230,201,0.25);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+
+    /* ─── STRIP ────────────────────────────────── */
+    .strip {
+      background: var(--crema);
+      border-top: 1px solid rgba(61,122,82,0.15);
+      border-bottom: 1px solid rgba(61,122,82,0.15);
       display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 0; border-bottom: 1px solid #e8eee9;
     }
-    .stat-item {
-      flex: 1; min-width: 160px;
-      padding: 2rem 1.5rem; text-align: center;
-      border-right: 1px solid #e8eee9;
+    .strip-item {
+      flex: 1; min-width: 150px; max-width: 260px;
+      padding: 1.8rem 1rem; text-align: center;
+      border-right: 1px solid rgba(61,122,82,0.1);
     }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-size: 2.2rem; font-weight: 800; color: var(--verde);
-      display: block; line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.85rem; color: var(--texto-suave); margin-top: 0.3rem;
-    }
+    .strip-item:last-child { border-right: none; }
+    .strip-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 900; color: var(--verde); line-height: 1; }
+    .strip-label { font-size: 0.82rem; color: var(--suave); margin-top: 0.3rem; }
 
-    /* ── SECTION BASE ── */
-    section { padding: 5rem 2rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-
-    .section-tag {
+    /* ─── SECCIÓN BASE ────────────────────────── */
+    section { padding: 5.5rem 5vw; }
+    .container { max-width: 1120px; margin: 0 auto; }
+    .tag {
       display: inline-block;
-      background: var(--verde-muy-claro); color: var(--verde-oscuro);
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 9999px;
+      background: var(--niebla); color: var(--bosque);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 9999px;
       margin-bottom: 1rem;
     }
-
-    .section-title {
-      font-size: clamp(1.7rem, 4vw, 2.5rem);
-      font-weight: 800; color: var(--verde-oscuro);
-      line-height: 1.15; margin-bottom: 0.75rem;
+    .tag-dark {
+      background: rgba(143,188,143,0.2); color: var(--menta);
     }
-    .section-desc {
-      color: var(--texto-suave); font-size: 1.05rem;
-      max-width: 560px; margin-bottom: 3rem;
+    .titulo {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--bosque); margin-bottom: 0.8rem;
+    }
+    .titulo em { font-style: italic; color: var(--musgo); }
+    .titulo-blanco { color: var(--blanco); }
+    .titulo-blanco em { color: var(--menta); }
+    .subtitulo { font-size: 1.05rem; color: var(--suave); max-width: 540px; line-height: 1.65; margin-bottom: 3rem; }
+    .subtitulo-claro { color: rgba(200,230,201,0.7); }
+
+    /* ─── MINI BOSQUES ────────────────────────── */
+    .minibosques { background: var(--mantequilla); }
+
+    .mb-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
     }
 
-    /* ── SERVICIOS ── */
+    .mb-diagram-wrap {
+      position: relative;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .mb-diagram {
+      width: min(460px, 100%);
+      filter: drop-shadow(0 20px 60px rgba(26,58,42,0.18));
+    }
+
+    .mb-features { display: flex; flex-direction: column; gap: 1.5rem; }
+    .mb-feature {
+      display: flex; align-items: flex-start; gap: 1.1rem;
+      padding: 1.25rem 1.4rem; border-radius: 14px;
+      background: var(--blanco); border: 1px solid rgba(61,122,82,0.12);
+      box-shadow: 0 2px 12px rgba(26,58,42,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .mb-feature:hover { transform: translateX(4px); box-shadow: 0 4px 20px rgba(26,58,42,0.1); }
+    .mb-feature-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--niebla); display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .mb-feature h4 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--bosque); margin-bottom: 0.25rem; }
+    .mb-feature p { font-size: 0.88rem; color: var(--suave); line-height: 1.5; }
+
+    /* ─── PROCESO ─────────────────────────────── */
+    .proceso { background: var(--bosque); }
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 3.5rem;
+      position: relative;
+    }
+    .proceso-grid::before {
+      content: '';
+      position: absolute;
+      top: 30px; left: calc(12.5% + 15px); right: calc(12.5% + 15px);
+      height: 1px; background: rgba(143,188,143,0.25);
+    }
+    .paso {
+      padding: 0 1.5rem;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    .paso-num {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--musgo); border: 3px solid rgba(143,188,143,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 900;
+      color: var(--blanco); margin-bottom: 1.25rem;
+      position: relative; z-index: 1;
+    }
+    .paso h4 { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--niebla); margin-bottom: 0.5rem; }
+    .paso p { font-size: 0.85rem; color: rgba(200,230,201,0.6); line-height: 1.5; }
+
+    /* ─── SERVICIOS ───────────────────────────── */
     .servicios { background: var(--crema); }
     .servicios-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
     .servicio-card {
-      background: var(--blanco); border-radius: 16px;
-      padding: 1.8rem; border: 1px solid #e0ebe2;
-      box-shadow: var(--sombra);
+      background: var(--blanco); border-radius: 18px;
+      padding: 1.75rem; border: 1px solid rgba(61,122,82,0.1);
+      box-shadow: 0 2px 16px rgba(26,58,42,0.06);
       transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
     }
-    .servicio-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(27,67,50,0.15);
+    .servicio-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--musgo), var(--salvia));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
     }
+    .servicio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,58,42,0.12); }
+    .servicio-card:hover::before { transform: scaleX(1); }
+    .servicio-card.featured {
+      background: linear-gradient(135deg, var(--bosque) 0%, var(--verde) 100%);
+      border-color: transparent; color: var(--blanco);
+    }
+    .servicio-card.featured::before { background: linear-gradient(90deg, var(--menta), var(--niebla)); }
+    .servicio-card.featured h3 { color: var(--blanco); }
+    .servicio-card.featured p { color: rgba(200,230,201,0.75); }
+    .servicio-card.featured .servicio-icon { background: rgba(143,188,143,0.2); }
     .servicio-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      background: var(--verde-muy-claro);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; margin-bottom: 1.1rem;
+      width: 50px; height: 50px; border-radius: 13px;
+      background: var(--niebla); display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.1rem;
     }
-    .servicio-card h3 {
-      font-size: 1.1rem; font-weight: 700; color: var(--verde-oscuro);
-      margin-bottom: 0.5rem;
-    }
-    .servicio-card p {
-      font-size: 0.92rem; color: var(--texto-suave); line-height: 1.55;
-    }
+    .servicio-card h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; color: var(--bosque); margin-bottom: 0.5rem; }
+    .servicio-card p { font-size: 0.9rem; color: var(--suave); line-height: 1.55; }
 
-    /* ── NOSOTROS ── */
+    /* ─── NOSOTROS ────────────────────────────── */
     .nosotros {
-      background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde) 100%);
-      color: var(--blanco);
+      background: var(--mantequilla);
     }
-    .nosotros .section-title { color: var(--blanco); }
-    .nosotros .section-desc { color: rgba(216,243,220,0.8); }
-    .nosotros .section-tag { background: rgba(82,183,136,0.3); color: var(--verde-claro); }
-
-    .valores-grid {
+    .nosotros-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.25rem; margin-top: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
     }
-    .valor-item {
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 14px; padding: 1.5rem;
-      transition: background 0.2s;
+    .nosotros-visual {
+      position: relative;
     }
-    .valor-item:hover { background: rgba(255,255,255,0.13); }
-    .valor-emoji { font-size: 1.8rem; margin-bottom: 0.6rem; display: block; }
-    .valor-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--verde-claro); }
-    .valor-item p { font-size: 0.88rem; color: rgba(216,243,220,0.75); }
-
-    /* ── APP CTA ── */
-    .app-cta { background: var(--verde-muy-claro); text-align: center; }
-    .cta-card {
-      background: var(--blanco); border-radius: 24px;
-      padding: 3.5rem 2rem; box-shadow: var(--sombra);
-      border: 1px solid #c8e6c9; max-width: 680px; margin: 0 auto;
-    }
-    .cta-card .app-icon {
-      width: 72px; height: 72px; border-radius: 20px;
-      background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+    .nosotros-img-mock {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(145deg, var(--musgo), var(--bosque));
+      border-radius: 24px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; margin: 0 auto 1.3rem;
-      box-shadow: 0 4px 16px rgba(27,67,50,0.3);
+      overflow: hidden; position: relative;
     }
-    .cta-card h2 {
-      font-size: 1.7rem; font-weight: 800; color: var(--verde-oscuro);
-      margin-bottom: 0.7rem;
+    .nosotros-img-mock svg { width: 75%; height: 75%; opacity: 0.35; }
+    .nosotros-badge {
+      position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+      border-radius: 14px; padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 1rem;
+      border: 1px solid rgba(61,122,82,0.15);
+      box-shadow: 0 4px 20px rgba(26,58,42,0.12);
     }
-    .cta-card p {
-      color: var(--texto-suave); margin-bottom: 2rem; font-size: 1rem;
+    .nosotros-badge-icon { font-size: 2rem; }
+    .nosotros-badge strong { display: block; font-family: 'Fraunces', serif; font-size: 1rem; color: var(--bosque); }
+    .nosotros-badge span { font-size: 0.82rem; color: var(--suave); }
+
+    .valores { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5rem; }
+    .valor {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.9rem 1.1rem; border-radius: 12px;
+      border: 1px solid rgba(61,122,82,0.12);
+      background: var(--blanco);
     }
-    .btn-cta {
+    .valor-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .valor h4 { font-size: 0.92rem; font-weight: 700; color: var(--bosque); margin-bottom: 0.1rem; }
+    .valor p { font-size: 0.82rem; color: var(--suave); }
+
+    /* ─── APP CTA ─────────────────────────────── */
+    .app-cta {
+      background: linear-gradient(145deg, var(--bosque) 0%, #0f2419 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .app-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(61,122,82,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .app-cta .container { position: relative; z-index: 1; }
+    .app-cta-inner { max-width: 640px; margin: 0 auto; }
+    .app-icon-wrap {
+      width: 80px; height: 80px; border-radius: 22px;
+      background: var(--musgo);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; margin: 0 auto 1.5rem;
+      border: 1px solid rgba(143,188,143,0.3);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .app-cta h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: var(--blanco); margin-bottom: 0.75rem; }
+    .app-cta p { color: rgba(200,230,201,0.65); margin-bottom: 2.2rem; font-size: 1rem; line-height: 1.65; }
+    .app-features {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+      margin-bottom: 2.2rem;
+    }
+    .app-feature-tag {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: rgba(143,188,143,0.12); border: 1px solid rgba(143,188,143,0.2);
+      color: rgba(200,230,201,0.75); font-size: 0.8rem;
+      padding: 0.35rem 0.85rem; border-radius: 9999px;
+    }
+    .btn-app {
       display: inline-flex; align-items: center; gap: 0.7rem;
-      background: var(--verde-oscuro); color: var(--blanco);
+      background: var(--menta); color: var(--bosque);
       padding: 1rem 2.2rem; border-radius: 9999px;
-      font-weight: 800; font-size: 1.05rem; text-decoration: none;
-      box-shadow: 0 4px 20px rgba(27,67,50,0.3);
+      font-weight: 800; font-size: 1rem; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(143,188,143,0.35);
       transition: all 0.2s;
     }
-    .btn-cta:hover {
-      background: var(--verde); transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(27,67,50,0.4);
-    }
-    .btn-cta-arrow { font-size: 1.2rem; transition: transform 0.2s; }
-    .btn-cta:hover .btn-cta-arrow { transform: translateX(4px); }
+    .btn-app:hover { background: var(--niebla); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(143,188,143,0.45); }
+    .btn-app-arrow { font-size: 1.1rem; transition: transform 0.2s; }
+    .btn-app:hover .btn-app-arrow { transform: translateX(4px); }
 
-    /* ── CONTACTO ── */
+    /* ─── CONTACTO ────────────────────────────── */
     .contacto { background: var(--crema); }
-    .contacto-flex {
-      display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;
+    .contacto-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
     }
-    .contacto-info { flex: 1; min-width: 260px; }
-    .contacto-info h2 {
-      font-size: 1.8rem; font-weight: 800; color: var(--verde-oscuro);
-      margin-bottom: 0.6rem;
-    }
-    .contacto-info p {
-      color: var(--texto-suave); margin-bottom: 2rem; font-size: 1rem;
-    }
-    .contacto-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contacto h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--bosque); margin-bottom: 0.6rem; }
+    .contacto-desc { color: var(--suave); margin-bottom: 2rem; font-size: 1rem; line-height: 1.65; }
+    .contacto-items { display: flex; flex-direction: column; gap: 0.85rem; }
     .contacto-item {
       display: flex; align-items: center; gap: 1rem;
-      background: var(--blanco); border: 1px solid #e0ebe2;
-      border-radius: 12px; padding: 1rem 1.2rem;
+      background: var(--blanco); border: 1px solid rgba(61,122,82,0.12);
+      border-radius: 14px; padding: 1rem 1.25rem;
       text-decoration: none; color: var(--texto);
-      box-shadow: 0 2px 8px rgba(27,67,50,0.06);
+      box-shadow: 0 2px 8px rgba(26,58,42,0.05);
       transition: all 0.2s;
     }
-    .contacto-item:hover {
-      border-color: var(--verde-claro);
-      box-shadow: 0 4px 16px rgba(27,67,50,0.12);
-      transform: translateX(4px);
-    }
-    .contacto-item-icon {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: var(--verde-muy-claro);
-      display: flex; align-items: center; justify-content: center;
+    .contacto-item:hover { border-color: var(--musgo); transform: translateX(5px); box-shadow: 0 4px 16px rgba(26,58,42,0.1); }
+    .ci-icon {
+      width: 44px; height: 44px; border-radius: 11px;
+      background: var(--niebla); display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; flex-shrink: 0;
     }
-    .contacto-item-text strong {
-      display: block; font-weight: 700; font-size: 0.85rem;
-      color: var(--texto-suave); margin-bottom: 1px;
-    }
-    .contacto-item-text span { font-size: 0.97rem; color: var(--verde-oscuro); font-weight: 600; }
+    .ci-text strong { display: block; font-size: 0.78rem; font-weight: 600; color: var(--suave); margin-bottom: 1px; }
+    .ci-text span { font-size: 0.95rem; font-weight: 600; color: var(--bosque); }
 
-    /* ── FOOTER ── */
+    .contacto-deco {
+      background: linear-gradient(145deg, var(--verde), var(--bosque));
+      border-radius: 24px; padding: 2.5rem;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      min-height: 340px; position: relative; overflow: hidden;
+    }
+    .contacto-deco::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(143,188,143,0.2), transparent 60%);
+    }
+    .contacto-deco svg { position: absolute; top: 1.5rem; right: 1.5rem; width: 140px; opacity: 0.15; }
+    .contacto-deco-text { position: relative; z-index: 1; }
+    .contacto-deco h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; color: var(--blanco); margin-bottom: 0.5rem; }
+    .contacto-deco p { font-size: 0.9rem; color: rgba(200,230,201,0.7); line-height: 1.55; }
+
+    /* ─── FOOTER ───────────────────────────────── */
     footer {
-      background: var(--verde-oscuro); color: rgba(216,243,220,0.7);
-      text-align: center; padding: 2rem;
-      font-size: 0.88rem;
+      background: var(--carbon);
+      padding: 2rem 5vw;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
-    footer a { color: var(--verde-claro); text-decoration: none; }
-    footer strong { color: var(--verde-claro); }
+    .footer-left { display: flex; align-items: center; gap: 0.7rem; }
+    .footer-left svg { width: 30px; height: 30px; opacity: 0.8; }
+    .footer-left span { font-size: 0.85rem; color: rgba(200,230,201,0.5); }
+    .footer-right { display: flex; gap: 1.5rem; }
+    .footer-right a { font-size: 0.85rem; color: rgba(200,230,201,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--menta); }
 
-    html { scroll-behavior: smooth; }
-
-    @media (max-width: 600px) {
-      nav { padding: 0.9rem 1.2rem; }
-      .nav-logo-text { font-size: 1.1rem; }
-      .stat-item { min-width: 120px; padding: 1.5rem 1rem; }
+    /* ─── RESPONSIVE ───────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding: 6rem 5vw 3rem; gap: 3rem; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-ctas { justify-content: center; }
+      .hero-visual { order: -1; }
+      .bosque-circle-hero { width: min(300px, 70vw); height: min(300px, 70vw); }
+      .proceso-grid { grid-template-columns: 1fr 1fr; }
+      .proceso-grid::before { display: none; }
+      .mb-layout, .nosotros-layout, .contacto-layout { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0.8rem 1.2rem; }
+      section { padding: 4rem 5vw; }
+      .proceso-grid { grid-template-columns: 1fr; }
+      .strip-item { min-width: 130px; padding: 1.5rem 0.75rem; }
+      .footer-right { flex-wrap: wrap; gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#" class="nav-logo">
-      <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="20" r="20" fill="#1b4332"/>
-        <polygon points="20,6 26,20 14,20" fill="#52b788"/>
-        <polygon points="20,13 27.5,25 12.5,25" fill="#40916c"/>
-        <rect x="18.5" y="25" width="3" height="5" rx="1" fill="#2d6a4f"/>
-        <polygon points="10,13 15,23 5,23" fill="#52b788" opacity="0.75"/>
-        <rect x="9" y="23" width="2" height="3.5" rx="0.8" fill="#2d6a4f"/>
-        <polygon points="30,13 35,23 25,23" fill="#52b788" opacity="0.75"/>
-        <rect x="29" y="23" width="2" height="3.5" rx="0.8" fill="#2d6a4f"/>
-        <rect x="4" y="29" width="32" height="3" rx="1.5" fill="#2d6a4f"/>
-      </svg>
-      <div>
-        <div class="nav-logo-text">Biodiverso</div>
-        <div class="nav-logo-sub">Servicios Forestales</div>
-      </div>
-    </a>
-    <a href="https://cleantimecontacto-star.github.io/Operaciones-forestales/" target="_blank" class="btn-nav">
-      ⚙️ Ingresar a la App
-    </a>
-  </nav>
-
-  <section class="hero" id="inicio">
-    <svg class="hero-trees" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <g fill="#d8f3dc">
-        <polygon points="0,200 80,60 160,200"/>
-        <polygon points="100,200 200,40 300,200"/>
-        <polygon points="260,200 340,80 420,200"/>
-        <polygon points="380,200 480,30 580,200"/>
-        <polygon points="520,200 600,70 680,200"/>
-        <polygon points="650,200 750,50 850,200"/>
-        <polygon points="800,200 880,80 960,200"/>
-        <polygon points="940,200 1040,35 1140,200"/>
-        <polygon points="1080,200 1160,65 1240,200"/>
-        <polygon points="1220,200 1320,45 1420,200"/>
-        <polygon points="1360,200 1440,75 1520,200"/>
-      </g>
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="20" fill="#2d5a3d"/>
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#5c9470" stroke-width="1" stroke-dasharray="3 3"/>
+      <polygon points="20,7 24.5,17 15.5,17" fill="#8fbc8f"/>
+      <polygon points="20,12 26,22 14,22" fill="#5c9470"/>
+      <rect x="18.5" y="22" width="3" height="5" rx="1" fill="#3d7a52"/>
+      <polygon points="10,12 13.5,19 6.5,19" fill="#8fbc8f" opacity="0.8"/>
+      <rect x="9" y="19" width="2" height="3" rx="0.7" fill="#3d7a52"/>
+      <polygon points="30,12 33.5,19 26.5,19" fill="#8fbc8f" opacity="0.8"/>
+      <rect x="29" y="19" width="2" height="3" rx="0.7" fill="#3d7a52"/>
+      <circle cx="14" cy="24" r="1.5" fill="#8fbc8f" opacity="0.5"/>
+      <circle cx="26" cy="25" r="1.2" fill="#8fbc8f" opacity="0.5"/>
+      <rect x="5" y="28" width="30" height="2.5" rx="1.2" fill="#2d5a3d"/>
     </svg>
-    <div class="hero-badge">🌿 Consultoría & Servicios Forestales</div>
-    <h1>Cuidamos el territorio,<br><span>sembramos el futuro</span></h1>
-    <p>Ofrecemos soluciones integrales en plantaciones, reforestación y gestión forestal para Chile. Compromiso con la tierra, la biodiversidad y tus proyectos.</p>
-    <div class="hero-ctas">
-      <a href="#servicios" class="btn-hero-primary">🌱 Ver servicios</a>
-      <a href="#contacto" class="btn-hero-secondary">Contáctanos →</a>
+    <div class="nav-brand">
+      <div class="nav-nombre">Biodiverso</div>
+      <div class="nav-sub">Servicios Forestales</div>
     </div>
-  </section>
+  </a>
+  <a href="https://cleantimecontacto-star.github.io/Operaciones-forestales/" target="_blank" class="btn-ingresar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
+    Ingresar a la App
+  </a>
+</nav>
 
-  <div class="stats">
-    <div class="stat-item"><span class="stat-num">🌲</span><div class="stat-label">Plantaciones & Reforestación</div></div>
-    <div class="stat-item"><span class="stat-num">💧</span><div class="stat-label">Sistemas de Riego</div></div>
-    <div class="stat-item"><span class="stat-num">🔬</span><div class="stat-label">Consultoría Técnica</div></div>
-    <div class="stat-item"><span class="stat-num">🌿</span><div class="stat-label">Biodiversidad Nativa</div></div>
+<!-- ── HERO ──────────────────────────────────────── -->
+<section class="hero" id="inicio">
+  <div class="hero-texto">
+    <div class="hero-etiqueta">Restauración ecológica nativa</div>
+    <h1>Plantamos<br><em>mini bosques</em><br>que perduran</h1>
+    <p class="hero-desc">Creamos bosquetes circulares de especies nativas de la zona central chilena — cercados, multiestrato y diseñados para la biodiversidad.</p>
+    <div class="hero-ctas">
+      <a href="#minibosques" class="btn-primary">🌳 Conoce los mini bosques</a>
+      <a href="#contacto" class="btn-outline">Cotiza tu proyecto →</a>
+    </div>
   </div>
 
-  <section class="servicios" id="servicios">
-    <div class="container">
-      <div class="section-tag">Nuestros servicios</div>
-      <h2 class="section-title">Soluciones forestales a medida</h2>
-      <p class="section-desc">Desde la planificación hasta la ejecución, acompañamos cada etapa de tu proyecto con experiencia técnica y compromiso ambiental.</p>
-      <div class="servicios-grid">
-        <div class="servicio-card"><div class="servicio-icon">🌳</div><h3>Plantación Forestal</h3><p>Diseño e implementación de proyectos de plantación por especie, adaptados a las condiciones del suelo y clima de tu predio.</p></div>
-        <div class="servicio-card"><div class="servicio-icon">🏔️</div><h3>Reforestación</h3><p>Recuperación de suelos degradados mediante reforestación por hectáreas con especies nativas y exóticas de alto rendimiento.</p></div>
-        <div class="servicio-card"><div class="servicio-icon">🌿</div><h3>Cerramiento Forestal</h3><p>Instalación de cerramientos lineales con especies arbustivas y arbóreas para delimitación y protección de predios.</p></div>
-        <div class="servicio-card"><div class="servicio-icon">💧</div><h3>Sistemas de Riego</h3><p>Diseño e instalación de sistemas de riego tecnificado: goteo, aspersión y sistemas automatizados para áreas forestales.</p></div>
-        <div class="servicio-card"><div class="servicio-icon">🔬</div><h3>Consultoría Técnica</h3><p>Asesoría profesional en gestión forestal, selección de especies, planificación predial y estudios de biodiversidad.</p></div>
-        <div class="servicio-card"><div class="servicio-icon">🌱</div><h3>Proyectos Mixtos</h3><p>Soluciones integradas que combinan plantaciones, servicios de mantención y sistemas de riego para proyectos complejos.</p></div>
+  <div class="hero-visual">
+    <div class="bosque-circle-hero">
+      <!-- Mini bosque circular ilustración -->
+      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cerco exterior (madera y malla) -->
+        <circle cx="200" cy="200" r="188" fill="none" stroke="#5c9470" stroke-width="3" stroke-dasharray="8 4" opacity="0.5"/>
+        <circle cx="200" cy="200" r="192" fill="none" stroke="#3d7a52" stroke-width="1.5" opacity="0.3"/>
+        <!-- Suelo interior -->
+        <circle cx="200" cy="200" r="184" fill="#0f2419" opacity="0.9"/>
+        <circle cx="200" cy="200" r="184" fill="url(#suelo)"/>
+        <!-- Textura suelo -->
+        <ellipse cx="150" cy="240" rx="40" ry="15" fill="#2d5a3d" opacity="0.4"/>
+        <ellipse cx="260" cy="190" rx="30" ry="12" fill="#2d5a3d" opacity="0.3"/>
+        <ellipse cx="180" cy="290" rx="35" ry="12" fill="#3d7a52" opacity="0.3"/>
+        <!-- Estrato herbáceo (círculo interior base) -->
+        <circle cx="200" cy="200" r="75" fill="#3d7a52" opacity="0.25"/>
+        <!-- Arbustos (capa media) -->
+        <ellipse cx="200" cy="155" rx="18" ry="14" fill="#4a8a5a"/>
+        <ellipse cx="245" cy="175" rx="15" ry="12" fill="#4a8a5a"/>
+        <ellipse cx="245" cy="225" rx="16" ry="13" fill="#3d7a52"/>
+        <ellipse cx="200" cy="245" rx="17" ry="14" fill="#4a8a5a"/>
+        <ellipse cx="155" cy="225" rx="15" ry="12" fill="#3d7a52"/>
+        <ellipse cx="155" cy="175" rx="16" ry="13" fill="#4a8a5a"/>
+        <!-- Árboles perimetrales -->
+        <!-- N -->
+        <polygon points="200,88 212,118 188,118" fill="#5c9470"/>
+        <polygon points="200,98 215,125 185,125" fill="#3d7a52"/>
+        <rect x="197" y="125" width="6" height="12" rx="2" fill="#2d5a3d"/>
+        <!-- NE -->
+        <polygon points="256,108 265,132 247,132" fill="#5c9470"/>
+        <polygon points="256,116 267,136 245,136" fill="#3d7a52"/>
+        <rect x="253" y="136" width="5" height="10" rx="1.5" fill="#2d5a3d"/>
+        <!-- E -->
+        <polygon points="296,200 272,190 272,210" fill="#5c9470"/>
+        <polygon points="300,200 274,188 274,212" fill="#3d7a52"/>
+        <rect x="262" y="197" width="10" height="5" rx="1.5" fill="#2d5a3d"/>
+        <!-- SE -->
+        <polygon points="256,292 265,268 247,268" fill="#5c9470"/>
+        <polygon points="256,284 267,264 245,264" fill="#3d7a52"/>
+        <rect x="253" y="254" width="5" height="10" rx="1.5" fill="#2d5a3d"/>
+        <!-- S -->
+        <polygon points="200,312 212,282 188,282" fill="#5c9470"/>
+        <polygon points="200,302 215,275 185,275" fill="#3d7a52"/>
+        <rect x="197" y="263" width="6" height="12" rx="2" fill="#2d5a3d"/>
+        <!-- SW -->
+        <polygon points="144,292 153,268 135,268" fill="#5c9470"/>
+        <polygon points="144,284 155,264 133,264" fill="#3d7a52"/>
+        <rect x="141" y="254" width="5" height="10" rx="1.5" fill="#2d5a3d"/>
+        <!-- W -->
+        <polygon points="104,200 128,190 128,210" fill="#5c9470"/>
+        <polygon points="100,200 126,188 126,212" fill="#3d7a52"/>
+        <rect x="128" y="197" width="10" height="5" rx="1.5" fill="#2d5a3d"/>
+        <!-- NW -->
+        <polygon points="144,108 153,132 135,132" fill="#5c9470"/>
+        <polygon points="144,116 155,136 133,136" fill="#3d7a52"/>
+        <rect x="141" y="136" width="5" height="10" rx="1.5" fill="#2d5a3d"/>
+        <!-- Árbol central grande -->
+        <polygon points="200,138 222,178 178,178" fill="#8fbc8f"/>
+        <polygon points="200,152 226,190 174,190" fill="#5c9470"/>
+        <polygon points="200,166 228,200 172,200" fill="#3d7a52"/>
+        <rect x="195" y="200" width="10" height="22" rx="3" fill="#2d5a3d"/>
+        <!-- Herbáceas pequeñas -->
+        <circle cx="170" cy="155" r="5" fill="#5c9470" opacity="0.7"/>
+        <circle cx="230" cy="162" r="4" fill="#4a8a5a" opacity="0.7"/>
+        <circle cx="225" cy="238" r="4" fill="#5c9470" opacity="0.7"/>
+        <circle cx="170" cy="242" r="5" fill="#4a8a5a" opacity="0.7"/>
+        <circle cx="185" cy="228" r="3" fill="#5c9470" opacity="0.6"/>
+        <circle cx="215" cy="170" r="3" fill="#4a8a5a" opacity="0.6"/>
+        <!-- Postes del cerco -->
+        <circle cx="200" cy="14" r="4" fill="#8b5e3c"/>
+        <circle cx="323" cy="77" r="4" fill="#8b5e3c"/>
+        <circle cx="386" cy="200" r="4" fill="#8b5e3c"/>
+        <circle cx="323" cy="323" r="4" fill="#8b5e3c"/>
+        <circle cx="200" cy="386" r="4" fill="#8b5e3c"/>
+        <circle cx="77" cy="323" r="4" fill="#8b5e3c"/>
+        <circle cx="14" cy="200" r="4" fill="#8b5e3c"/>
+        <circle cx="77" cy="77" r="4" fill="#8b5e3c"/>
+        <!-- Leyenda flotante -->
+        <rect x="290" y="60" width="95" height="28" rx="8" fill="rgba(26,58,42,0.85)"/>
+        <circle cx="303" cy="74" r="4" fill="#8fbc8f"/>
+        <text x="311" y="78" font-size="9" fill="#c8e6c9" font-family="Inter, sans-serif">Árboles nativos</text>
+        <rect x="290" y="100" width="95" height="28" rx="8" fill="rgba(26,58,42,0.85)"/>
+        <circle cx="303" cy="114" r="4" fill="#5c9470"/>
+        <text x="311" y="118" font-size="9" fill="#c8e6c9" font-family="Inter, sans-serif">Arbustos</text>
+        <rect x="290" y="140" width="95" height="28" rx="8" fill="rgba(26,58,42,0.85)"/>
+        <circle cx="303" cy="154" r="4" fill="#3d7a52"/>
+        <text x="311" y="158" font-size="9" fill="#c8e6c9" font-family="Inter, sans-serif">Herbáceas</text>
+        <rect x="8" y="280" width="80" height="28" rx="8" fill="rgba(139,94,60,0.85)"/>
+        <rect x="20" y="290" width="8" height="8" rx="1.5" fill="#8b5e3c"/>
+        <text x="32" y="298" font-size="9" fill="#f5f0e8" font-family="Inter, sans-serif">Cerco</text>
+        <defs>
+          <radialGradient id="suelo" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2d5a3d" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#1a3a2a" stop-opacity="0.95"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-arrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M3 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span>Explorar</span>
+  </div>
+</section>
+
+<!-- ── STRIP ──────────────────────────────────────── -->
+<div class="strip">
+  <div class="strip-item"><div class="strip-num">≥3m</div><div class="strip-label">Diámetro mínimo del bosquete</div></div>
+  <div class="strip-item"><div class="strip-num">3–5</div><div class="strip-label">Estratos vegetacionales</div></div>
+  <div class="strip-item"><div class="strip-num">100%</div><div class="strip-label">Especies nativas zona central</div></div>
+  <div class="strip-item"><div class="strip-num">∞</div><div class="strip-label">Biodiversidad en cada proyecto</div></div>
+</div>
+
+<!-- ── MINI BOSQUES ───────────────────────────────── -->
+<section class="minibosques" id="minibosques">
+  <div class="container">
+    <div class="mb-layout">
+      <div>
+        <div class="tag">Nuestra especialidad</div>
+        <h2 class="titulo">Un <em>mini bosque</em><br>en tu terreno</h2>
+        <p class="subtitulo">Los bosquetes son unidades circulares de vegetación nativa que replican la estructura de un bosque real — desde el suelo hasta la copa — en un espacio reducido.</p>
+        <div class="mb-features">
+          <div class="mb-feature">
+            <div class="mb-feature-icon">⭕</div>
+            <div>
+              <h4>Forma circular, diseño estratégico</h4>
+              <p>Cada bosquete tiene 3 o más metros de diámetro. La forma circular maximiza el efecto borde y la interacción entre especies.</p>
+            </div>
+          </div>
+          <div class="mb-feature">
+            <div class="mb-feature-icon">🪵</div>
+            <div>
+              <h4>Cerco de madera y malla</h4>
+              <p>Protegemos cada bosquete con cerco perimetral de madera y malla para permitir el establecimiento sin interferencia animal ni humana.</p>
+            </div>
+          </div>
+          <div class="mb-feature">
+            <div class="mb-feature-icon">🌿</div>
+            <div>
+              <h4>Multiestrato nativo</h4>
+              <p>Árboles, arbustos, herbáceas y cobertura de suelo — todos nativos de la zona central chilena — organizados por estratos como un bosque real.</p>
+            </div>
+          </div>
+          <div class="mb-feature">
+            <div class="mb-feature-icon">🦋</div>
+            <div>
+              <h4>Hábitat para fauna local</h4>
+              <p>La diversidad de especies y estratos atrae y sostiene insectos polinizadores, aves y reptiles nativos del Valle Central.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-diagram-wrap">
+        <!-- Diagrama de corte transversal -->
+        <svg class="mb-diagram" viewBox="0 0 440 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Fondo -->
+          <rect width="440" height="500" rx="24" fill="#f5f0e8"/>
+          <!-- Título -->
+          <text x="220" y="36" text-anchor="middle" font-family="Fraunces, serif" font-size="15" font-weight="700" fill="#1a3a2a">Corte transversal — Mini Bosque</text>
+          <!-- Suelo -->
+          <rect x="30" y="400" width="380" height="75" rx="0" fill="#6b4226" opacity="0.9"/>
+          <rect x="30" y="400" width="380" height="75" rx="0" fill="url(#gsuelo)"/>
+          <rect x="30" y="390" width="380" height="18" rx="4" fill="#8b5e3c"/>
+          <!-- Cerco izq -->
+          <rect x="34" y="160" width="8" height="240" rx="3" fill="#8b5e3c"/>
+          <rect x="20" y="152" width="36" height="8" rx="3" fill="#6b4226"/>
+          <!-- Cerco der -->
+          <rect x="398" y="160" width="8" height="240" rx="3" fill="#8b5e3c"/>
+          <rect x="384" y="152" width="36" height="8" rx="3" fill="#6b4226"/>
+          <!-- Malla -->
+          <line x1="42" y1="160" x2="42" y2="390" stroke="#9e9e8a" stroke-width="0.8" opacity="0.5"/>
+          <line x1="398" y1="160" x2="398" y2="390" stroke="#9e9e8a" stroke-width="0.8" opacity="0.5"/>
+          <!-- Herbáceas / cobertura suelo -->
+          <ellipse cx="110" cy="392" rx="35" ry="10" fill="#3d7a52"/>
+          <ellipse cx="220" cy="392" rx="40" ry="10" fill="#4a8a5a"/>
+          <ellipse cx="330" cy="392" rx="35" ry="10" fill="#3d7a52"/>
+          <!-- Hierbas pequeñas -->
+          <path d="M90 390 Q92 370 95 390" stroke="#5c9470" stroke-width="2" fill="none"/>
+          <path d="M100 390 Q102 375 105 390" stroke="#5c9470" stroke-width="2" fill="none"/>
+          <path d="M200 390 Q202 365 205 390" stroke="#5c9470" stroke-width="2" fill="none"/>
+          <path d="M215 390 Q217 372 220 390" stroke="#4a8a5a" stroke-width="2" fill="none"/>
+          <path d="M310 390 Q312 368 315 390" stroke="#5c9470" stroke-width="2" fill="none"/>
+          <!-- Arbustos -->
+          <ellipse cx="90" cy="340" rx="30" ry="22" fill="#5c9470"/>
+          <ellipse cx="80" cy="335" rx="22" ry="18" fill="#4a8a5a"/>
+          <rect x="86" y="358" width="8" height="30" rx="3" fill="#3d7a52"/>
+          <ellipse cx="170" cy="320" rx="26" ry="20" fill="#5c9470"/>
+          <rect x="166" y="338" width="8" height="50" rx="3" fill="#3d7a52"/>
+          <ellipse cx="270" cy="315" rx="28" ry="21" fill="#4a8a5a"/>
+          <rect x="266" y="334" width="8" height="55" rx="3" fill="#3d7a52"/>
+          <ellipse cx="355" cy="340" rx="30" ry="22" fill="#5c9470"/>
+          <rect x="351" y="358" width="8" height="30" rx="3" fill="#3d7a52"/>
+          <!-- Árbol mediano izq -->
+          <polygon points="130,240 155,305 105,305" fill="#5c9470"/>
+          <polygon points="130,265 158,315 102,315" fill="#4a8a5a"/>
+          <rect x="124" y="315" width="12" height="75" rx="4" fill="#2d5a3d"/>
+          <!-- Árbol mediano der -->
+          <polygon points="310,255 335,315 285,315" fill="#5c9470"/>
+          <polygon points="310,278 338,325 282,325" fill="#4a8a5a"/>
+          <rect x="304" y="325" width="12" height="65" rx="4" fill="#2d5a3d"/>
+          <!-- Árbol central grande -->
+          <polygon points="220,80 258,180 182,180" fill="#8fbc8f"/>
+          <polygon points="220,115 262,205 178,205" fill="#5c9470"/>
+          <polygon points="220,150 265,228 175,228" fill="#4a8a5a"/>
+          <polygon points="220,185 262,248 178,248" fill="#3d7a52"/>
+          <rect x="212" y="248" width="16" height="142" rx="5" fill="#2d5a3d"/>
+          <!-- Etiquetas de estratos -->
+          <rect x="2" y="72" width="38" height="16" rx="4" fill="#1a3a2a"/>
+          <text x="21" y="83" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#c8e6c9">Dosel</text>
+          <line x1="40" y1="80" x2="180" y2="100" stroke="#c8e6c9" stroke-width="0.8" opacity="0.5"/>
+          <rect x="2" y="220" width="50" height="16" rx="4" fill="#1a3a2a"/>
+          <text x="27" y="231" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#c8e6c9">Sub-dosel</text>
+          <line x1="52" y1="228" x2="108" y2="268" stroke="#c8e6c9" stroke-width="0.8" opacity="0.5"/>
+          <rect x="2" y="310" width="46" height="16" rx="4" fill="#1a3a2a"/>
+          <text x="25" y="321" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#c8e6c9">Arbustivo</text>
+          <line x1="48" y1="318" x2="60" y2="340" stroke="#c8e6c9" stroke-width="0.8" opacity="0.5"/>
+          <rect x="2" y="370" width="50" height="16" rx="4" fill="#1a3a2a"/>
+          <text x="27" y="381" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#c8e6c9">Herbáceo</text>
+          <line x1="52" y1="378" x2="70" y2="390" stroke="#c8e6c9" stroke-width="0.8" opacity="0.5"/>
+          <!-- Cerco label -->
+          <rect x="385" y="168" width="50" height="16" rx="4" fill="#6b4226"/>
+          <text x="410" y="179" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#f5f0e8">Cerco</text>
+          <!-- Diámetro -->
+          <line x1="42" y1="470" x2="400" y2="470" stroke="#9e9e8a" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+          <text x="220" y="488" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6b4226" font-weight="600">≥ 3 metros de diámetro</text>
+          <defs>
+            <linearGradient id="gsuelo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8b5e3c" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#1a3a2a" stop-opacity="0.8"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="nosotros" id="nosotros">
-    <div class="container">
-      <div class="section-tag">¿Quiénes somos?</div>
-      <h2 class="section-title">Biodiverso nace del amor<br>por la tierra</h2>
-      <p class="section-desc">Somos un equipo de profesionales forestales radicados en Santiago de Chile, comprometidos con la restauración ecológica y el desarrollo sostenible del territorio.</p>
-      <div class="valores-grid">
-        <div class="valor-item"><span class="valor-emoji">🌍</span><h4>Compromiso ambiental</h4><p>Cada proyecto prioriza el cuidado del ecosistema y la recuperación de especies nativas.</p></div>
-        <div class="valor-item"><span class="valor-emoji">🤝</span><h4>Cercanía con el cliente</h4><p>Trabajamos de la mano contigo desde la primera visita hasta la entrega final.</p></div>
-        <div class="valor-item"><span class="valor-emoji">⚙️</span><h4>Gestión profesional</h4><p>Usamos herramientas digitales propias para cotizar, gestionar y hacer seguimiento de cada proyecto.</p></div>
-        <div class="valor-item"><span class="valor-emoji">📍</span><h4>Cobertura nacional</h4><p>Basados en Santiago, trabajamos en todo Chile desde la región de Valparaíso hasta Los Lagos.</p></div>
+<!-- ── PROCESO ────────────────────────────────────── -->
+<section class="proceso" id="proceso">
+  <div class="container">
+    <div class="tag tag-dark">Cómo lo hacemos</div>
+    <h2 class="titulo titulo-blanco">Del terreno al <em>bosque</em></h2>
+    <p class="subtitulo subtitulo-claro">Un proceso simple, técnico y comprometido con el resultado a largo plazo.</p>
+    <div class="proceso-grid">
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <h4>Visita & diagnóstico</h4>
+        <p>Evaluamos el terreno, el suelo y las condiciones climáticas para diseñar el bosquete ideal para tu predio.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <h4>Selección de especies</h4>
+        <p>Elegimos las especies nativas de la zona central chilena más adecuadas para los distintos estratos del bosquete.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <h4>Instalación del cerco</h4>
+        <p>Construimos el cerco perimetral de madera y malla para proteger el bosquete durante su establecimiento.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">4</div>
+        <h4>Plantación & seguimiento</h4>
+        <p>Plantamos y realizamos seguimiento técnico para asegurar el arraigo y la biodiversidad a largo plazo.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="app-cta" id="app">
-    <div class="container">
-      <div class="cta-card">
-        <div class="app-icon">⚙️</div>
-        <h2>App de Operaciones Forestales</h2>
-        <p>Accede a nuestra plataforma interna para gestión de cotizaciones, clientes, stock de insumos e informes financieros.</p>
-        <a href="https://cleantimecontacto-star.github.io/Operaciones-forestales/" target="_blank" class="btn-cta">
-          Ingresar a la App <span class="btn-cta-arrow">→</span>
-        </a>
+<!-- ── SERVICIOS ──────────────────────────────────── -->
+<section class="servicios" id="servicios">
+  <div class="container">
+    <div class="tag">Nuestros servicios</div>
+    <h2 class="titulo">Soluciones forestales<br><em>a medida</em></h2>
+    <p class="subtitulo">Desde mini bosques hasta proyectos de gran escala, acompañamos cada etapa con experiencia técnica.</p>
+    <div class="servicios-grid">
+      <div class="servicio-card featured">
+        <div class="servicio-icon">🌳</div>
+        <h3>Mini Bosques Circulares</h3>
+        <p>Bosquetes de ≥3 m de diámetro, cercados con madera y malla, con especies nativas de distintos estratos. Nuestra especialidad.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">🏔️</div>
+        <h3>Reforestación</h3>
+        <p>Recuperación de suelos degradados con especies nativas y exóticas de alto rendimiento, desde una hectárea en adelante.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">🌿</div>
+        <h3>Cerramiento Forestal</h3>
+        <p>Instalación de cerramientos lineales con especies arbustivas y arbóreas para delimitación y protección de predios.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">💧</div>
+        <h3>Sistemas de Riego</h3>
+        <p>Diseño e instalación de riego tecnificado — goteo, aspersión y sistemas automatizados — para áreas forestales.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">🔬</div>
+        <h3>Consultoría Técnica</h3>
+        <p>Asesoría en gestión forestal, selección de especies, planificación predial y estudios de biodiversidad.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">🌱</div>
+        <h3>Proyectos Mixtos</h3>
+        <p>Soluciones integradas que combinan plantaciones, mantención y sistemas de riego para proyectos complejos.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="contacto" id="contacto">
-    <div class="container">
-      <div class="contacto-flex">
-        <div class="contacto-info">
-          <div class="section-tag">Contacto</div>
-          <h2>¿Tienes un proyecto<br>en mente?</h2>
-          <p>Escríbenos o llámanos. Evaluamos tu terreno y te entregamos una cotización sin costo.</p>
-          <div class="contacto-items">
-            <a href="tel:+56952396823" class="contacto-item">
-              <div class="contacto-item-icon">📞</div>
-              <div class="contacto-item-text"><strong>Teléfono / WhatsApp</strong><span>+56 9 5239 6823</span></div>
-            </a>
-            <a href="mailto:biodiverso.contacto@gmail.com" class="contacto-item">
-              <div class="contacto-item-icon">✉️</div>
-              <div class="contacto-item-text"><strong>Correo electrónico</strong><span>biodiverso.contacto@gmail.com</span></div>
-            </a>
-            <div class="contacto-item" style="cursor:default;">
-              <div class="contacto-item-icon">📍</div>
-              <div class="contacto-item-text"><strong>Ubicación</strong><span>Santiago de Chile</span></div>
+<!-- ── NOSOTROS ───────────────────────────────────── -->
+<section class="nosotros" id="nosotros">
+  <div class="container">
+    <div class="nosotros-layout">
+      <div class="nosotros-visual">
+        <div class="nosotros-img-mock">
+          <!-- Ilustración bosque -->
+          <svg viewBox="0 0 300 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.6">
+              <polygon points="150,30 190,130 110,130" fill="#8fbc8f"/>
+              <polygon points="150,60 195,145 105,145" fill="#5c9470"/>
+              <polygon points="150,95 196,158 104,158" fill="#3d7a52"/>
+              <rect x="143" y="158" width="14" height="80" rx="4" fill="#2d5a3d"/>
+              <polygon points="60,70 90,150 30,150" fill="#8fbc8f" opacity="0.8"/>
+              <polygon points="60,100 92,158 28,158" fill="#5c9470" opacity="0.8"/>
+              <rect x="54" y="158" width="12" height="70" rx="4" fill="#2d5a3d"/>
+              <polygon points="240,80 268,155 212,155" fill="#8fbc8f" opacity="0.8"/>
+              <polygon points="240,108 270,162 210,162" fill="#5c9470" opacity="0.8"/>
+              <rect x="234" y="162" width="12" height="66" rx="4" fill="#2d5a3d"/>
+              <rect x="0" y="228" width="300" height="120" rx="0" fill="#1a3a2a"/>
+              <ellipse cx="80" cy="230" rx="45" ry="18" fill="#3d7a52"/>
+              <ellipse cx="160" cy="232" rx="55" ry="20" fill="#2d5a3d"/>
+              <ellipse cx="240" cy="230" rx="40" ry="16" fill="#3d7a52"/>
+            </g>
+          </svg>
+          <div class="nosotros-badge">
+            <div class="nosotros-badge-icon">🌱</div>
+            <div>
+              <strong>Basados en Santiago</strong>
+              <span>Proyectos en toda la zona central</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tag">¿Quiénes somos?</div>
+        <h2 class="titulo">Biodiverso nace del<br><em>amor por la tierra</em></h2>
+        <p class="subtitulo">Somos un equipo de profesionales forestales comprometidos con la restauración ecológica y el fomento de la flora nativa de la zona central chilena.</p>
+        <div class="valores">
+          <div class="valor">
+            <div class="valor-icon">🌍</div>
+            <div>
+              <h4>Compromiso ambiental</h4>
+              <p>Cada proyecto prioriza el ecosistema y la recuperación de especies nativas endémicas.</p>
+            </div>
+          </div>
+          <div class="valor">
+            <div class="valor-icon">🤝</div>
+            <div>
+              <h4>Cercanía con el cliente</h4>
+              <p>Trabajamos contigo desde la primera visita hasta la entrega final y el seguimiento.</p>
+            </div>
+          </div>
+          <div class="valor">
+            <div class="valor-icon">⚙️</div>
+            <div>
+              <h4>Gestión profesional</h4>
+              <p>Herramientas digitales propias para cotizar, gestionar y hacer seguimiento de cada proyecto.</p>
+            </div>
+          </div>
+          <div class="valor">
+            <div class="valor-icon">📍</div>
+            <div>
+              <h4>Zona central chilena</h4>
+              <p>Especialistas en la flora y condiciones de Valparaíso, RM y O'Higgins.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 <strong>Biodiverso</strong> – Servicios y Consultoría Forestal · Santiago de Chile</p>
-    <p style="margin-top:0.4rem;">
-      <a href="mailto:biodiverso.contacto@gmail.com">biodiverso.contacto@gmail.com</a>
-      &nbsp;·&nbsp;
-      <a href="tel:+56952396823">+56 9 5239 6823</a>
-    </p>
-  </footer>
+<!-- ── APP CTA ─────────────────────────────────────── -->
+<section class="app-cta" id="app">
+  <div class="container">
+    <div class="app-cta-inner">
+      <div class="app-icon-wrap">🌲</div>
+      <h2>App de Operaciones Forestales</h2>
+      <p>Plataforma interna para gestión de cotizaciones, clientes, stock de insumos e informes. Exclusivo para el equipo Biodiverso.</p>
+      <div class="app-features">
+        <span class="app-feature-tag">📋 Cotizaciones</span>
+        <span class="app-feature-tag">👥 Clientes</span>
+        <span class="app-feature-tag">📦 Stock</span>
+        <span class="app-feature-tag">📊 Informes</span>
+      </div>
+      <a href="https://cleantimecontacto-star.github.io/Operaciones-forestales/" target="_blank" class="btn-app">
+        Ingresar a la App <span class="btn-app-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACTO ───────────────────────────────────── -->
+<section class="contacto" id="contacto">
+  <div class="container">
+    <div class="contacto-layout">
+      <div>
+        <div class="tag">Contacto</div>
+        <h2>¿Tienes un proyecto<br>en mente?</h2>
+        <p class="contacto-desc">Escríbenos o llámanos. Visitamos tu terreno y te entregamos una cotización sin costo para tu mini bosque o proyecto forestal.</p>
+        <div class="contacto-items">
+          <a href="tel:+56952396823" class="contacto-item">
+            <div class="ci-icon">📞</div>
+            <div class="ci-text"><strong>Teléfono / WhatsApp</strong><span>+56 9 5239 6823</span></div>
+          </a>
+          <a href="mailto:biodiverso.contacto@gmail.com" class="contacto-item">
+            <div class="ci-icon">✉️</div>
+            <div class="ci-text"><strong>Correo electrónico</strong><span>biodiverso.contacto@gmail.com</span></div>
+          </a>
+          <div class="contacto-item" style="cursor:default;">
+            <div class="ci-icon">📍</div>
+            <div class="ci-text"><strong>Ubicación</strong><span>Santiago de Chile</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="contacto-deco">
+        <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="90" stroke="#8fbc8f" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <polygon points="100,20 120,70 80,70" fill="#8fbc8f"/>
+          <polygon points="100,40 124,78 76,78" fill="#5c9470"/>
+          <rect x="96" y="78" width="8" height="40" rx="3" fill="#3d7a52"/>
+          <polygon points="50,50 65,90 35,90" fill="#8fbc8f" opacity="0.7"/>
+          <polygon points="150,55 165,92 135,92" fill="#8fbc8f" opacity="0.7"/>
+          <ellipse cx="100" cy="140" rx="60" ry="20" fill="#3d7a52" opacity="0.5"/>
+        </svg>
+        <div class="contacto-deco-text">
+          <h3>Cotización sin costo</h3>
+          <p>Visitamos tu terreno, evaluamos las condiciones y te presentamos una propuesta de mini bosque personalizada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="footer-left">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="20" fill="#2d5a3d"/>
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#5c9470" stroke-width="1" stroke-dasharray="3 3"/>
+      <polygon points="20,8 24,17 16,17" fill="#8fbc8f"/>
+      <polygon points="20,12 25,20 15,20" fill="#5c9470"/>
+      <rect x="18.5" y="20" width="3" height="8" rx="1" fill="#3d7a52"/>
+      <rect x="6" y="29" width="28" height="2.5" rx="1.2" fill="#2d5a3d"/>
+    </svg>
+    <span>© 2025 <strong style="color:rgba(200,230,201,0.7)">Biodiverso</strong> · Servicios Forestales · Santiago de Chile</span>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:biodiverso.contacto@gmail.com">biodiverso.contacto@gmail.com</a>
+    <a href="tel:+56952396823">+56 9 5239 6823</a>
+    <a href="https://cleantimecontacto-star.github.io/Operaciones-forestales/" target="_blank">App →</a>
+  </div>
+</footer>
 
 </body>
 </html>
